@@ -48,6 +48,16 @@ jobs:
           firefox-version: "84.0"
       - run: |
           firefox --version
+      - uses: ./dist/
+        with:
+          firefox-version: 'latest-beta'
+      - run: |
+          firefox --version
+      - uses: ./dist/
+        with:
+          firefox-version: 'latest-devedition'
+      - run: |
+          firefox --version
 
   deploy:
     runs-on: ubuntu-latest
