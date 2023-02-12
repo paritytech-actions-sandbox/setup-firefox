@@ -65,6 +65,6 @@ jobs:
       - run: |
           firefox --version
       - run: |
-          echo ${{ steps.setup-firefox-1.firefox-version }}
-          echo ${{ steps.setup-firefox-2.firefox-version }}
-          echo ${{ steps.setup-firefox-3.firefox-version }}
+          echo ${{ steps.setup-firefox-1.outputs.firefox-version }}
+          echo ${{ steps.setup-firefox-2.outputs.firefox-version }}
+          echo ${{ steps.setup-firefox-3.outputs.firefox-version }}
