@@ -45,6 +45,7 @@ jobs:
       - uses: ./
         # Latest version for windows is not currently supported
         if: ${{ matrix.os != 'windows' }}
+        id: setup-firefox-1
       - run: |
           firefox --version
         if: ${{ matrix.os != 'windows' }}
@@ -53,11 +54,17 @@ jobs:
         if: ${{ matrix.os != 'windows' }}
         with:
           firefox-version: latest-esr
+        id: setup-firefox-2
       - run: |
           firefox --version
         if: ${{ matrix.os != 'windows' }}
       - uses: ./
         with:
           firefox-version: "84.0"
+        id: setup-firefox-3
       - run: |
           firefox --version
+      - run: |
+          echo ${{ steps.setup-firefox-1.firefox-version }}
+          echo ${{ steps.setup-firefox-2.firefox-version }}
+          echo ${{ steps.setup-firefox-3.firefox-version }}
